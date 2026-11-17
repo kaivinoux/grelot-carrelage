@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grelot Carrelage — Accueil</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tiled-bg-1 home-page-bg">
+
+  <!-- Mobile Burger Overlay (Figma #229:4612) -->
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+  <nav class="mobile-menu-overlay" id="mobileMenuOverlay" aria-label="Menu mobile">
+    <a href="index.html" class="btn-figma-mobile">Accueil</a>
+    <a href="realisations.html" class="btn-figma-mobile">Nos Réalisations</a>
+    <a href="contact.html" class="btn-figma-mobile">Contact</a>
+  </nav>
+
+  <!-- Section 1: Hero Banner (Figma #90:675 / #197:4215) -->
+  <header class="hero-section" id="top">
+    <button class="burger-btn js-burger-btn" aria-label="Ouvrir le menu">
+      <img src="assets/images/menu_burger.svg" alt="Menu">
+    </button>
+
+    <div class="hero-overlay-band">
+      <img src="assets/images/logo.png" alt="Grelot Carrelage - Gironde" class="hero-logo">
+      <div class="hero-cta-group">
+        <a href="realisations.html" class="btn-figma-hero">Nos réalisations</a>
+        <a href="contact.html" class="btn-figma-hero">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Header Bar below Hero (Figma #123:794 + #104:618..#90:746) -->
+  <div class="home-subnav-wrapper" id="homeStickyHeader">
+    <div class="home-subnav-bar">
+      <a href="#top" class="header-logo-link">
+        <img src="assets/images/logo.png" alt="Grelot Carrelage" class="header-logo">
+      </a>
+      <nav class="subnav-buttons" aria-label="Navigation principale">
+        <a href="#top" class="btn-figma-nav">Accueil</a>
+        <a href="realisations.html" class="btn-figma-nav">Nos<br>Réalisations</a>
+        <a href="contact.html" class="btn-figma-nav">Contacts</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Section 2: Featured Realisations Carousel (Figma #90:725) -->
+  <section class="home-realisations-section" id="apercu-realisations">
+    <div class="home-carousel-row">
+      <button class="arrow-btn" id="prevRealisationBtn" aria-label="Réalisation précédente">
+        <img src="assets/images/arrow_left_render.png" alt="Précédent">
+      </button>
+
+      <div class="home-cards-track-wrapper">
+        <div class="home-cards-track" id="homeRealisationsTrack">
+          <!-- Card 1 (Figma #123:809) -->
+          <a href="chantier.html?projet=piscine" class="realisation-card clickable-card">
+            <div class="framed-photo">
+              <img class="photo-img" src="assets/images/mosaiques_piscine.png" alt="Mosaiques Bleu dans une piscine">
+              <img class="frame-overlay" src="assets/images/cadre_photo.png" alt="">
+            </div>
+            <h3>Mosaiques Bleu dans une piscine</h3>
+            <p>
+              Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem
+              Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior
+              fama. nec enim super hoc ulla documentorum rata est fides.
+            </p>
+          </a>
+
+          <!-- Card 2 (Figma #123:808) -->
+          <a href="chantier.html?projet=travertin" class="realisation-card clickable-card">
+            <div class="framed-photo">
+              <img class="photo-img" src="assets/images/douche_travertin.jpg" alt="Douche à l’italienne en travertin">
+              <img class="frame-overlay" src="assets/images/cadre_photo.png" alt="">
+            </div>
+            <h3>Douche à l’italienne en travertin</h3>
+            <p>
+              Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem
+              Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior
+              fama. nec enim super hoc ulla documentorum rata est fides.
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <button class="arrow-btn" id="nextRealisationBtn" aria-label="Réalisation suivante">
+        <img src="assets/images/arrow_right_render.png" alt="Suivant">
+      </button>
+    </div>
+
+    <div class="voir-plus-container">
+      <a href="realisations.html" class="btn-figma-nav">Voir Plus</a>
+    </div>
+  </section>
+
+  <!-- Section 3: Prestations / Histoire / Savoir-faire & Partenaires (Figma #90:682) -->
+  <section class="home-info-section">
+    <div class="tabs-bar" role="tablist">
+      <button class="btn-figma-tab active js-tab-btn" data-tab="prestations" role="tab">Prestations</button>
+      <button class="btn-figma-tab js-tab-btn" data-tab="histoire" role="tab">Histoire</button>
+      <button class="btn-figma-tab js-tab-btn" data-tab="savoirfaire" role="tab">Savoir-faire</button>
+    </div>
+
+    <div class="info-frame-box">
+      <p class="info-frame-text" id="tabContentText">
+        Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.Oportunum est, ut arbitror, explanare nunc causam, quae ad exitium praecipitem Aginatium inpulit iam inde a priscis maioribus nobilem, ut locuta est pertinacior fama. nec enim super hoc ulla documentorum rata est fides.
+      </p>
+    </div>
+
+    <!-- Partners Carousel (Figma #197:3796 & #229:4629) -->
+    <div class="partners-section" id="partenaires">
+      <h2>Nos partenaires</h2>
+
+      <div class="partners-carousel-row">
+        <button class="arrow-btn" id="prevPartnerBtn" aria-label="Partenaire précédent">
+          <img src="assets/images/arrow_left_render.png" alt="Précédent">
+        </button>
+
+        <div class="partners-viewport">
+          <div class="partners-track" id="partnersTrack">
+            <div class="partner-tile black"></div>
+            <div class="partner-tile green"></div>
+            <div class="partner-tile light"></div>
+            <div class="partner-tile black"></div>
+            <div class="partner-tile green"></div>
+            <div class="partner-tile light"></div>
+          </div>
+        </div>
+
+        <button class="arrow-btn" id="nextPartnerBtn" aria-label="Partenaire suivant">
+          <img src="assets/images/arrow_right_render.png" alt="Suivant">
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
