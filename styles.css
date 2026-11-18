@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 
 :root {
-  --bg-mauve: #87676A;
+  --bg-mauve: #717171;
   --bg-header: #FAB377;
   --text-white: #FFFFFF;
   --red-primary: #B81405;
@@ -309,7 +309,7 @@ a {
   right: 18px;
   width: 231px;
   padding: 12px 26px;
-  background: rgba(135, 103, 106, 0.96);
+  background: rgba(113, 113, 113, 0.96);
   border: 2px solid var(--red-border);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   z-index: 100;
