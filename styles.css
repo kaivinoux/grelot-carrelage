@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 
 :root {
-  --bg-mauve: #CFCFCF;
+  --bg-mauve: #B0B0B0;
   --bg-header: #FAB377;
   --text-white: #FFFFFF;
+  --text-dark: #1C1C1C;
+  --text-dark-muted: #2B2B2B;
   --red-primary: #B81405;
   --red-hover: #F50500;
   --red-border: #6D0D04;
+  --orange-border: #C47C3A;
   --font-main: 'Jersey 20', sans-serif;
 }
 
@@ -23,7 +26,7 @@ html {
 body {
   font-family: var(--font-main);
   background-color: var(--bg-mauve);
-  color: var(--text-white);
+  color: var(--text-dark);
   overflow-x: hidden;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -39,10 +42,10 @@ a {
    ========================================================================== */
 .tiled-bg-1 {
   background-color: var(--bg-mauve);
-  background-image: url('assets/images/bg_section_1_wide.png?v=3');
-  background-size: 4320px 3072px;
+  background-image: url('assets/images/bg_gris_grille.png');
+  background-size: 960px 960px;
   background-position: center 0px;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
 }
 
 .home-page-bg {
@@ -57,25 +60,23 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 347px;
-  height: 75px;
-  background-image: url('assets/images/btn_hero_bg.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  width: 318px;
+  height: 56px;
+  background-color: #BF1200;
   border: none;
+  box-shadow: inset 0 0 0 3px var(--red-border);
   color: var(--text-white);
   font-family: var(--font-main);
   font-size: 24px;
   font-weight: 400;
   text-align: center;
   cursor: pointer;
-  transition: filter 0.18s ease, transform 0.15s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   user-select: none;
 }
 
 .btn-figma-hero:hover {
-  filter: brightness(1.28) saturate(1.2);
+  background-color: #E01600;
   transform: translateY(-1px);
 }
 
@@ -84,13 +85,11 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 127px;
-  height: 75px;
-  background-image: url('assets/images/btn_nav_bg.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  width: 112px;
+  height: 56px;
+  background-color: #BF1200;
   border: none;
+  box-shadow: inset 0 0 0 3px var(--red-border);
   color: var(--text-white);
   font-family: var(--font-main);
   font-size: 20px;
@@ -99,12 +98,12 @@ a {
   text-align: center;
   padding: 8px 12px;
   cursor: pointer;
-  transition: filter 0.18s ease, transform 0.15s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   user-select: none;
 }
 
 .btn-figma-nav:hover {
-  filter: brightness(1.28) saturate(1.2);
+  background-color: #E01600;
   transform: translateY(-1px);
 }
 
@@ -113,13 +112,11 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 127px;
-  height: 75px;
-  background-image: url('assets/images/btn_tab_inactive_bg.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-color: transparent;
+  width: 116px;
+  height: 52px;
+  background-color: #7F0F04;
   border: none;
+  box-shadow: inset 0 0 0 3px #540A02;
   color: var(--text-white);
   font-family: var(--font-main);
   font-size: 20px;
@@ -127,17 +124,18 @@ a {
   text-align: center;
   padding: 8px 10px;
   cursor: pointer;
-  transition: filter 0.18s ease, transform 0.15s ease;
+  transition: background-color 0.18s ease, transform 0.15s ease;
   user-select: none;
 }
 
 .btn-figma-tab.active {
-  background-image: url('assets/images/btn_nav_bg.png');
+  background-color: #BF1200;
+  box-shadow: inset 0 0 0 3px var(--red-border);
   z-index: 2;
 }
 
 .btn-figma-tab:hover {
-  filter: brightness(1.28) saturate(1.2);
+  background-color: #D81500;
 }
 
 /* ==========================================================================
@@ -146,24 +144,30 @@ a {
 .arrow-btn {
   background: transparent;
   border: none;
+  color: #BF1200;
   cursor: pointer;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.18s ease, filter 0.18s ease;
+  transition: transform 0.18s ease, color 0.18s ease;
   flex-shrink: 0;
 }
 
-.arrow-btn img {
-  width: 96px;
-  height: auto;
+.arrow-btn svg {
+  width: 72px;
+  height: 216px;
   display: block;
-  transition: filter 0.18s ease;
 }
 
-.arrow-btn:hover img {
-  filter: brightness(1.3) saturate(1.25);
+.arrow-btn img {
+  width: 72px;
+  height: auto;
+  display: block;
+}
+
+.arrow-btn:hover {
+  color: #E01600;
 }
 
 .arrow-btn:active {
@@ -171,33 +175,30 @@ a {
 }
 
 /* ==========================================================================
-   PHOTO FRAME (Image_utilitaire / cadre_photo 1)
+   PHOTO CONTAINER (Frameless images)
    ========================================================================== */
 .framed-photo {
   position: relative;
   display: block;
   overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.25s ease;
 }
 
 .framed-photo .photo-img {
-  position: absolute;
-  top: 3.1%;
-  left: 1.55%;
-  width: 96.5%;
-  height: 93.2%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-  z-index: 1;
   transition: transform 0.35s ease;
 }
 
 .framed-photo .frame-overlay {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: block;
-  z-index: 2;
-  pointer-events: none;
+  display: none;
+}
+
+.clickable-card:hover .framed-photo {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28), 0 4px 10px rgba(0, 0, 0, 0.14);
 }
 
 .clickable-card:hover .framed-photo .photo-img {
@@ -211,12 +212,12 @@ a {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 118px;
+  height: 113px;
   background-color: var(--bg-header);
-  background-image: url('assets/images/header_band_wide.png?v=3');
-  background-size: 4320px 118px;
+  background-image: url('assets/images/header_band_grille.png');
+  background-size: 960px 960px;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,11 +259,7 @@ a {
   transform: translateY(-50%);
   display: flex;
   align-items: center;
-  gap: 0px;
-}
-
-.header-nav .btn-figma-nav + .btn-figma-nav {
-  margin-left: -14px;
+  gap: 10px;
 }
 
 /* ==========================================================================
@@ -308,15 +305,15 @@ a {
   top: 18px;
   right: 18px;
   width: 231px;
-  padding: 12px 26px;
+  padding: 16px 26px;
   background: rgba(48, 48, 48, 0.96);
-  border: 2px solid var(--red-border);
+  border: none;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
   z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
   transform: translateY(-12px) scale(0.96);
   opacity: 0;
   pointer-events: none;
@@ -331,9 +328,9 @@ a {
 
 .mobile-menu-overlay .btn-figma-mobile {
   width: 179px;
-  height: 76px;
-  background-image: url('assets/images/btn_hero_bg.png');
-  background-size: 100% 100%;
+  height: 54px;
+  background-color: #BF1200;
+  box-shadow: inset 0 0 0 3px var(--red-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -346,6 +343,7 @@ a {
    ========================================================================== */
 .hero-section {
   position: relative;
+  z-index: 2;
   width: 100%;
   height: 863px;
   background-image: url('assets/images/hero_bg_desktop.jpg');
@@ -386,13 +384,13 @@ a {
   position: sticky;
   top: 0;
   width: 100%;
-  height: 118px;
+  height: 113px;
   z-index: 60;
   background-color: var(--bg-header);
-  background-image: url('assets/images/header_band_wide.png?v=3');
-  background-size: 4320px 118px;
+  background-image: url('assets/images/header_band_grille.png');
+  background-size: 960px 960px;
   background-position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   transition: box-shadow 0.22s ease;
 }
 
@@ -417,10 +415,7 @@ a {
   right: 48px;
   display: flex;
   align-items: center;
-}
-
-.home-subnav-bar .subnav-buttons .btn-figma-nav + .btn-figma-nav {
-  margin-left: -10px;
+  gap: 10px;
 }
 
 /* Home Featured Realisations Carousel Section */
@@ -429,6 +424,7 @@ a {
   margin: 0 auto;
   padding: 40px 24px 50px;
   position: relative;
+  z-index: 1;
 }
 
 .home-carousel-row {
@@ -470,13 +466,13 @@ a {
   font-size: 36px;
   font-weight: 400;
   margin-bottom: 14px;
-  color: var(--text-white);
+  color: var(--text-dark);
 }
 
 .realisation-card p {
   font-size: 20px;
   line-height: 1.25;
-  color: var(--text-white);
+  color: var(--text-dark-muted);
 }
 
 .voir-plus-container {
@@ -487,6 +483,8 @@ a {
 
 /* Home Tabs (Prestations / Histoire / Savoir-faire) */
 .home-info-section {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
   padding: 30px 59px 80px;
@@ -495,24 +493,20 @@ a {
 .tabs-bar {
   display: flex;
   align-items: center;
-  margin-left: 8px;
-  margin-bottom: -14px;
+  gap: 4px;
+  margin-left: 0;
+  margin-bottom: 0;
   position: relative;
   z-index: 3;
-}
-
-.tabs-bar .btn-figma-tab + .btn-figma-tab {
-  margin-left: -20px;
 }
 
 .info-frame-box {
   position: relative;
   width: 100%;
   max-width: 1285px;
-  min-height: 400px;
-  background-image: url('assets/images/cadre_texte_accueil.png');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  min-height: 360px;
+  background-color: var(--bg-header);
+  box-shadow: inset 0 0 0 3px var(--orange-border);
   padding: 46px 68px;
   display: flex;
   align-items: center;
@@ -588,6 +582,8 @@ a {
    NOS REALISATIONS PAGE (NosRealisation_graphique #123:638)
    ========================================================================== */
 .realisations-list-section {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
   padding: 64px 188px 100px;
@@ -638,6 +634,8 @@ a {
    CHANTIER INDIVIDUEL PAGE (ExempleChantier_graphique #123:618)
    ========================================================================== */
 .chantier-section {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
   padding: 56px 57px 100px;
@@ -686,13 +684,6 @@ a {
   cursor: zoom-in;
 }
 
-.chantier-photo-horizontal .photo-img {
-  top: 3.8%;
-  left: 2.0%;
-  width: 96.4%;
-  height: 93.0%;
-}
-
 /* Lightbox Overlay (Figma #229:4874..4878) */
 .lightbox-backdrop {
   position: fixed;
@@ -734,7 +725,8 @@ a {
   top: -44px;
   right: 0;
   background: var(--red-primary);
-  border: 2px solid var(--text-white);
+  border: none;
+  box-shadow: inset 0 0 0 3px var(--red-border);
   color: var(--text-white);
   font-family: var(--font-main);
   font-size: 22px;
@@ -746,6 +738,8 @@ a {
    CONTACT PAGE (Contact_graphique #123:619)
    ========================================================================== */
 .contact-section {
+  position: relative;
+  z-index: 1;
   max-width: 1440px;
   min-height: calc(100vh - 113px);
   margin: 0 auto;
@@ -820,6 +814,16 @@ a {
 }
 
 @media (max-width: 768px) {
+  .tiled-bg-1,
+  .top-header,
+  .home-subnav-wrapper {
+    background-size: 640px 640px;
+  }
+
+  .home-page-bg {
+    background-position: center 852px;
+  }
+
   .burger-btn {
     display: flex;
   }
@@ -850,7 +854,7 @@ a {
 
   .btn-figma-hero {
     width: 179px;
-    height: 76px;
+    height: 54px;
     font-size: 16px;
   }
 
@@ -859,8 +863,13 @@ a {
     padding: 28px 8px 36px;
   }
 
+  .arrow-btn svg {
+    width: 34px;
+    height: 102px;
+  }
+
   .arrow-btn img {
-    width: 42px;
+    width: 34px;
   }
 
   .realisation-card {
@@ -894,13 +903,13 @@ a {
 
   .btn-figma-tab {
     width: 93px;
-    height: 75px;
+    height: 46px;
     font-size: 14px;
   }
 
   .info-frame-box {
-    background-image: url('assets/images/cadre_texte_mobile.png');
-    min-height: 540px;
+    background-color: var(--bg-header);
+    min-height: 480px;
     padding: 36px 28px;
   }
 

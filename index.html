@@ -49,7 +49,14 @@
   <section class="home-realisations-section" id="apercu-realisations">
     <div class="home-carousel-row">
       <button class="arrow-btn" id="prevRealisationBtn" aria-label="Réalisation précédente">
-        <img src="assets/images/arrow_left_render.png" alt="Précédent">
+        <svg viewBox="0 0 72 216" aria-hidden="true">
+          <defs>
+            <clipPath id="arrowLeftClip">
+              <polygon points="72,0 0,108 72,216" />
+            </clipPath>
+          </defs>
+          <polygon points="72,0 0,108 72,216" fill="currentColor" stroke="#6D0D04" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="8" clip-path="url(#arrowLeftClip)" />
+        </svg>
       </button>
 
       <div class="home-cards-track-wrapper">
@@ -58,7 +65,6 @@
           <a href="chantier.html?projet=piscine" class="realisation-card clickable-card">
             <div class="framed-photo">
               <img class="photo-img" src="assets/images/mosaiques_piscine.png" alt="Mosaiques Bleu dans une piscine">
-              <img class="frame-overlay" src="assets/images/cadre_photo.png" alt="">
             </div>
             <h3>Mosaiques Bleu dans une piscine</h3>
             <p>
@@ -72,7 +78,6 @@
           <a href="chantier.html?projet=travertin" class="realisation-card clickable-card">
             <div class="framed-photo">
               <img class="photo-img" src="assets/images/douche_travertin.jpg" alt="Douche à l’italienne en travertin">
-              <img class="frame-overlay" src="assets/images/cadre_photo.png" alt="">
             </div>
             <h3>Douche à l’italienne en travertin</h3>
             <p>
@@ -85,7 +90,14 @@
       </div>
 
       <button class="arrow-btn" id="nextRealisationBtn" aria-label="Réalisation suivante">
-        <img src="assets/images/arrow_right_render.png" alt="Suivant">
+        <svg viewBox="0 0 72 216" aria-hidden="true">
+          <defs>
+            <clipPath id="arrowRightClip">
+              <polygon points="0,0 72,108 0,216" />
+            </clipPath>
+          </defs>
+          <polygon points="0,0 72,108 0,216" fill="currentColor" stroke="#6D0D04" stroke-width="6" stroke-linejoin="miter" stroke-miterlimit="8" clip-path="url(#arrowRightClip)" />
+        </svg>
       </button>
     </div>
 

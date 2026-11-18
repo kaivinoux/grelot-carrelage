@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         card.innerHTML = `
           <div class="framed-photo">
             <img class="photo-img" src="${item.img}" alt="${item.title}">
-            <img class="frame-overlay" src="assets/images/cadre_photo.png" alt="">
           </div>
           <h3>${item.title}</h3>
           <p>${item.desc}</p>
