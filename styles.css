@@ -443,28 +443,33 @@ a {
 
 .home-cards-track {
   display: grid;
-  grid-template-columns: repeat(2, 509px);
+  grid-template-columns: repeat(2, minmax(0, 509px));
   justify-content: space-between;
+  align-items: start;
   gap: 40px;
   transition: transform 0.35s ease, opacity 0.25s ease;
 }
 
 .realisation-card {
-  width: 509px;
+  width: 100%;
+  max-width: 509px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 }
 
 .realisation-card .framed-photo {
-  width: 509px;
-  height: 341px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 509 / 341;
   margin-bottom: 21px;
 }
 
 .realisation-card h3 {
   font-size: 36px;
   font-weight: 400;
+  line-height: 1.08;
+  min-height: 2.2em;
   margin-bottom: 14px;
   color: var(--text-dark);
 }

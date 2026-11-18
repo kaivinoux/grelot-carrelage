@@ -79,34 +79,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevRealBtn = document.getElementById('prevRealisationBtn');
   const nextRealBtn = document.getElementById('nextRealisationBtn');
   let realIndex = 0;
+  let lastCardCount = null;
+  let realRenderTimer = null;
 
-  function renderHomeRealisations() {
+  function populateHomeRealisations(count) {
+    homeTrack.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+      const item = realisationsSlides[(realIndex + i) % realisationsSlides.length];
+      const card = document.createElement('a');
+      card.href = item.link;
+      card.className = 'realisation-card clickable-card';
+      card.innerHTML = `
+        <div class="framed-photo">
+          <img class="photo-img" src="${item.img}" alt="${item.title}">
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      `;
+      homeTrack.appendChild(card);
+    }
+  }
+
+  function renderHomeRealisations(immediate = false) {
     if (!homeTrack) return;
     const isMobile = window.innerWidth <= 1180;
     const count = isMobile ? 1 : 2;
-    homeTrack.style.opacity = '0.35';
+    lastCardCount = count;
 
-    setTimeout(() => {
-      homeTrack.innerHTML = '';
-      for (let i = 0; i < count; i++) {
-        const item = realisationsSlides[(realIndex + i) % realisationsSlides.length];
-        const card = document.createElement('a');
-        card.href = item.link;
-        card.className = 'realisation-card clickable-card';
-        card.innerHTML = `
-          <div class="framed-photo">
-            <img class="photo-img" src="${item.img}" alt="${item.title}">
-          </div>
-          <h3>${item.title}</h3>
-          <p>${item.desc}</p>
-        `;
-        homeTrack.appendChild(card);
-      }
+    if (realRenderTimer) {
+      clearTimeout(realRenderTimer);
+      realRenderTimer = null;
+    }
+
+    if (immediate) {
+      populateHomeRealisations(count);
       homeTrack.style.opacity = '1';
+      return;
+    }
+
+    homeTrack.style.opacity = '0.35';
+    realRenderTimer = setTimeout(() => {
+      populateHomeRealisations(count);
+      homeTrack.style.opacity = '1';
+      realRenderTimer = null;
     }, 120);
   }
 
   if (homeTrack && prevRealBtn && nextRealBtn) {
+    renderHomeRealisations(true);
+
     prevRealBtn.addEventListener('click', () => {
       realIndex = (realIndex - 1 + realisationsSlides.length) % realisationsSlides.length;
       renderHomeRealisations();
@@ -116,7 +137,10 @@ document.addEventListener('DOMContentLoaded', () => {
       renderHomeRealisations();
     });
     window.addEventListener('resize', () => {
-      renderHomeRealisations();
+      const nextCount = window.innerWidth <= 1180 ? 1 : 2;
+      if (nextCount !== lastCardCount) {
+        renderHomeRealisations(true);
+      }
     });
   }
 
