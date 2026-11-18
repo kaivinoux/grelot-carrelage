@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let realRenderTimer = null;
 
   function populateHomeRealisations(count) {
-    homeTrack.innerHTML = '';
+    const cards = [];
     for (let i = 0; i < count; i++) {
       const item = realisationsSlides[(realIndex + i) % realisationsSlides.length];
       const card = document.createElement('a');
@@ -96,8 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <h3>${item.title}</h3>
         <p>${item.desc}</p>
       `;
-      homeTrack.appendChild(card);
+      cards.push(card);
     }
+    homeTrack.replaceChildren(...cards);
   }
 
   function renderHomeRealisations(immediate = false) {
@@ -126,6 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (homeTrack && prevRealBtn && nextRealBtn) {
+    realisationsSlides.forEach((slide) => {
+      const preload = new Image();
+      preload.src = slide.img;
+    });
     renderHomeRealisations(true);
 
     prevRealBtn.addEventListener('click', () => {
